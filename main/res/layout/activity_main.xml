@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:gravity="center_horizontal">
+
+    <!-- Title -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MNIST Digit Classifier"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+    <!-- Drawing Canvas -->
+    <com.phc.mnistdroid.DrawingView
+            android:id="@+id/drawingView"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="16dp" />
+
+    <!-- Color Picker -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Color:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+        <View
+                android:id="@+id/colorBlack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/black"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        <View
+                android:id="@+id/colorRed"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#FF0000"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        <View
+                android:id="@+id/colorBlue"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#0000FF"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        <View
+                android:id="@+id/colorGreen"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#00AA00"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        <View
+                android:id="@+id/colorPurple"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#AA00AA"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        <View
+                android:id="@+id/colorOrange"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="#FF8800"
+                android:clickable="true"
+                android:focusable="true" />
+    </LinearLayout>
+
+    <!-- Buttons -->
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+        <Button
+                android:id="@+id/btnClassify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Classify"
+                android:layout_marginEnd="8dp" />
+
+        <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:layout_marginEnd="8dp" />
+
+        <Button
+                android:id="@+id/btnUndo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Undo" />
+    </LinearLayout>
+
+    <!-- Big Top Prediction Box -->
+    <LinearLayout
+            android:id="@+id/topPredictionBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="#F5F5F5"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Prediction"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+        <TextView
+                android:id="@+id/tvTopDigit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="72sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+        <TextView
+                android:id="@+id/tvTopConfidence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confidence: -"
+                android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- Other Predictions Header -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other Predictions"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+    <!-- Three Smaller Boxes -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+        <!-- Prediction 2 -->
+        <LinearLayout
+                android:id="@+id/prediction2Box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:layout_marginEnd="4dp">
+
+            <TextView
+                    android:id="@+id/tvDigit2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+            <TextView
+                    android:id="@+id/tvConfidence2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-%"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Prediction 3 -->
+        <LinearLayout
+                android:id="@+id/prediction3Box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:layout_marginEnd="4dp">
+
+            <TextView
+                    android:id="@+id/tvDigit3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+            <TextView
+                    android:id="@+id/tvConfidence3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-%"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Prediction 4 -->
+        <LinearLayout
+                android:id="@+id/prediction4Box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="#F5F5F5"
+                android:gravity="center">
+
+            <TextView
+                    android:id="@+id/tvDigit4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+
+            <TextView
+                    android:id="@+id/tvConfidence4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-%"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

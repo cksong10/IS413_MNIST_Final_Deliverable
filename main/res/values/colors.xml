@@ -1,0 +1,7 @@
+<resources>
+    <color name="confHigh">#4CAF50</color>     <!-- green -->
+    <color name="confMedium">#FFC107</color>   <!-- amber -->
+    <color name="confLow">#F44336</color>      <!-- red -->
+</resources>
+
+
